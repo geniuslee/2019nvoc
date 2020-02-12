@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+
+<head>
+    <meta charset="utf-8">
+</head>
+
+<body style="height: 100%; margin: 0">
+    <div id="container" style="height: 100%"></div>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-gl/dist/echarts-gl.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-stat/dist/ecStat.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/extension/dataTool.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/map/js/china.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/map/js/world.js"></script>
+    <script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=buEYZ7YU3KpZh0Xw5zNDLg3pnfERGkjq"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/extension/bmap.min.js"></script>
+    <script type="text/javascript">
+        var dom = document.getElementById("container");
+        var myChart = echarts.init(dom);
+        var app = {};
+        option = null;
+        var data = [
+            {name: '金园一路1118弄', value: 120},
+ {name: '首创旭辉城', value: 120},
+ {name: '华润中央公园', value: 120},
+ {name: '光明D9空间', value: 120},
+ {name: '发祥路89号', value: 120},
+ {name: '永辉超市（嘉定宝龙广场店）', value: 120},
+ {name: '双佳翠庭', value: 120},
+ {name: '海尚菊苑', value: 120},
+ {name: '采菊苑', value: 120},
+ {name: '共康雅苑（二期）', value: 120},
+ {name: '南秀雅苑', value: 120},
+ {name: '四季绿城', value: 120},
+ {name: '呼玛三村', value: 120},
+ {name: '呼玛集贸市场', value: 120},
+ {name: '安吉斯铭汽车销售服务有限公司', value: 120},
+ {name: '东安二村', value: 120},
+ {name: '炎虹路76弄', value: 120},
+ {name: '地铁大木桥路站', value: 120},
+ {name: '地铁陕西南路站', value: 120},
+ {name: '尚海湾豪庭', value: 120},
+ {name: '上中路51弄', value: 120},
+ {name: '凯滨路19弄', value: 120},
+ {name: '宾阳路62弄', value: 120},
+ {name: '正阳路36号', value: 120},
+ {name: '永嘉路356弄', value: 120},
+ {name: '漕东支路218弄', value: 120},
+ {name: '田林东路4114弄', value: 120},
+ {name: '科苑新村', value: 120},
+ {name: '罗秀路620弄', value: 120},
+ {name: '老沪闵路790弄', value: 120},
+ {name: '钦州南路917弄', value: 120},
+ {name: '钦州路108弄', value: 120},
+ {name: '龙吴路1343弄', value: 120},
+ {name: '梅陇汽车站“枫梅县”站点', value: 120},
+ {name: '宁武路218弄', value: 120},
+ {name: '东森花园', value: 120},
+ {name: '凤城花园', value: 120},
+ {name: '市京集贸市场', value: 120},
+ {name: '新江湾城悠方购物中心', value: 120},
+ {name: '沃天百联生活超市（新桥店）', value: 120},
+ {name: '华兴小区', value: 120},
+ {name: '久阳文华府邸', value: 120},
+ {name: '乐都西路1636弄', value: 120},
+ {name: '亭中小区', value: 120},
+ {name: '地铁九号线九亭站', value: 120},
+ {name: '松江大学城站', value: 120},
+ {name: '新凯家园一期', value: 120},
+ {name: '翔昆苑', value: 120},
+ {name: '北蔡芳草路欧麦克KTV', value: 120},
+ {name: '惠南镇锦江之星宾馆', value: 120},
+ {name: '新高苑', value: 120},
+ {name: '民乐城兰丽苑', value: 120},
+ {name: '金京路地铁站', value: 120},
+ {name: '阳光花城', value: 120},
+ {name: '上海贺普药业股份有限公司', value: 120},
+ {name: '汤臣豪园四期', value: 120},
+ {name: '浦东国际机场', value: 120},
+ {name: '证大家园', value: 120},
+ {name: '陆家嘴锦绣前城', value: 120},
+ {name: '地杰国际城E欧泊时光', value: 120},
+ {name: '绿地崴廉公寓', value: 120},
+ {name: '绿林路51弄', value: 120},
+ {name: '虹桥路1024弄', value: 120},
+ {name: '新华豪庭', value: 120},
+ {name: '虹桥火车站', value: 120},
+ {name: '中华美路60弄', value: 120},
+ {name: '地铁虹桥2号航站楼站', value: 120},
+ {name: '大润发（华漕店）', value: 120},
+ {name: '爱博一村', value: 120},
+ {name: '虹桥国际机场', value: 120},
+ {name: '城市超市（虹梅路店）', value: 120},
+ {name: '虹六菜市场', value: 120},
+ {name: '虹桥花苑', value: 120},
+ {name: '春申景城', value: 120},
+ {name: '莘沥路232号', value: 120},
+ {name: '陕西南路地铁站', value: 120},
+ {name: '南行贤苑', value: 120},
+ {name: '阳光二期', value: 120},
+ {name: '南行贤苑', value: 120},
+ {name: '齐贤南百小区', value: 120},
+ {name: '连高路111弄', value: 120},
+ {name: '西乡路91弄', value: 120},
+ {name: '嘉利明珠城', value: 120},
+ {name: '闻喜路935弄', value: 120},
+ {name: '中铁十五局集团有限公司', value: 120},
+ {name: '枫岸华庭', value: 120}
+            ];
+
+        var geoCoordMap = {
+            '金园一路1118弄': [121.312096, 31.246853],
+            '首创旭辉城': [121.350474, 31.462721],
+            '华润中央公园': [121.316788, 31.31061],
+            '光明D9空间': [121.263373, 31.347154],
+            '发祥路89号': [121.336741, 31.245389],
+            '永辉超市（嘉定宝龙广场店）': [121.279098, 31.330137],
+            '双佳翠庭': [121.313323, 31.247481],
+            '海尚菊苑': [121.366211, 31.353643],
+            '采菊苑': [121.366448, 31.34922],
+            '共康雅苑（二期）': [121.422022, 31.330418],
+            '南秀雅苑': [121.414194, 31.270603],
+            '四季绿城': [121.477289, 31.33062],
+            '呼玛三村': [121.440513, 31.3409],
+            '呼玛集贸市场': [121.449396, 31.339941],
+            '安吉斯铭汽车销售服务有限公司': [121.453781, 31.193075],
+            '东安二村': [121.455048, 31.188665],
+            '炎虹路76弄': [121.464781, 31.202676],
+            '地铁大木桥路站': [121.461075, 31.202017],
+            '地铁陕西南路站': [121.459413, 31.21609],
+            '尚海湾豪庭': [121.458017, 31.179214],
+            '上中路51弄': [121.434176, 31.136676],
+            '凯滨路19弄': [121.458126, 31.178182],
+            '宾阳路62弄': [121.438432, 31.164337],
+            '正阳路36号': [121.463823, 31.200825],
+            '永嘉路356弄': [121.457084, 31.209097],
+            '田林东路4114弄': [121.427303, 31.172118],
+            '漕东支路218弄': [121.437483, 31.175263],
+            '科苑新村': [121.431926, 31.163686],
+            '罗秀路620弄': [121.431326, 31.13091],
+            '老沪闵路790弄': [121.433374, 31.140667],
+            '钦州南路917弄': [121.412837, 31.154626],
+            '钦州路108弄': [121.430577, 31.16284],
+            '龙吴路1343弄': [121.450087, 31.137069],
+            '梅陇汽车站“枫梅县”站点': [121.412775, 31.141198],
+            '宁武路218弄': [121.545524, 31.267744],
+            '东森花园': [121.523912, 31.328044],
+            '凤城花园': [121.520712, 31.279607],
+            '市京集贸市场': [121.523922, 31.322285],
+            '新江湾城悠方购物中心': [121.507703, 31.33015],
+            '沃天百联生活超市（新桥店）': [121.471917, 30.829232],
+            '华兴小区': [121.481717, 31.274539],
+            '久阳文华府邸': [121.193002, 31.04093],
+            '乐都西路1636弄': [121.211295, 31.013048],
+            '亭中小区': [121.322648, 31.126993],
+            '地铁九号线九亭站': [121.324935, 31.127116],
+            '松江大学城站': [121.2345, 31.058625],
+            '新凯家园一期': [121.234034, 31.106478],
+            '翔昆苑': [121.12187, 31.028765],
+            '北蔡芳草路欧麦克KTV': [121.556618, 31.193642],
+            '惠南镇锦江之星宾馆': [121.749346, 31.047972],
+            '新高苑': [121.618758, 31.29114],
+            '民乐城兰丽苑': [121.735912, 31.060557],
+            '金京路地铁站': [121.615477, 31.279823],
+            '阳光花城': [121.620361, 31.208874],
+            '上海贺普药业股份有限公司': [121.606745, 31.193034],
+            '汤臣豪园四期': [121.592091, 31.199006],
+            '浦东国际机场': [121.807559, 31.140815],
+            '证大家园': [121.598881, 31.281101],
+            '陆家嘴锦绣前城': [121.537669, 31.196306],
+            '地杰国际城E欧泊时光': [121.575692, 31.157771],
+            '绿地崴廉公寓': [121.613266, 31.290406],
+            '绿林路51弄': [121.549235, 31.174488],
+            '虹桥路1024弄': [121.419386, 31.194664],
+            '新华豪庭': [121.43129, 31.203425],
+            '虹桥火车站': [121.320205, 31.193935],
+            '中华美路60弄': [121.330428, 31.218883],
+            '地铁虹桥2号航站楼站': [121.3263, 31.194211],
+            '大润发（华漕店）': [121.293129, 31.210324],
+            '爱博一村': [121.310176, 31.206847],
+            '虹桥国际机场': [121.33795, 31.196471],
+            '城市超市（虹梅路店）': [121.387765, 31.187015],
+            '虹六菜市场': [121.3825, 31.184263],
+            '虹桥花苑': [121.388137, 31.188898],
+            '春申景城': [121.40525, 31.1135],
+            '莘沥路232号': [121.372656, 31.111339],
+            '陕西南路地铁站': [121.459413, 31.21609],
+            '南行贤苑': [121.514787, 30.962648],
+            '阳光二期': [121.45086, 30.89979],
+            '齐贤南百小区': [121.512521, 30.954362],
+            '连高路111弄': [121.000251, 31.012801],
+            '西乡路91弄': [121.425065, 31.268138],
+            '嘉利明珠城': [121.463875, 31.27328],
+            '闻喜路935弄': [121.448145, 31.307597],
+            '中铁十五局集团有限公司': [121.463344, 31.254699],
+            '枫岸华庭': [121.02797, 30.896902]
+        };
+
+        var convertData = function(data) {
+            var res = [];
+            for (var i = 0; i < data.length; i++) {
+                var geoCoord = geoCoordMap[data[i].name];
+                if (geoCoord) {
+                    res.push({
+                        name: data[i].name,
+                        value: geoCoord.concat(data[i].value),
+                        tooltip: {
+                            formatter: "<div style='width:80px;height:auto;display:block;white-space:normal;word-wrap: break-word;word-break: break-all;'>" + data[i].name + "，" + "最新病例通报时间："+data[i].riqi + "</div>"
+                        }
+                    });
+                }
+            }
+            return res;
+        };
+
+        option = {
+            title: {
+                text: '上海疫情小区分布',
+                subtext: '',
+                sublink: '',
+                left: 'center'
+            },
+            tooltip: {
+                trigger: 'item'
+            },
+            bmap: {
+                center: [121.4118768, 31.19257332],
+                zoom: 13,
+                roam: true,
+                mapStyle: {
+                    styleJson: [{
+                        'featureType': 'water',
+                        'elementType': 'all',
+                        'stylers': {
+                            'color': '#d1d1d1'
+                        }
+                    }, {
+                        'featureType': 'land',
+                        'elementType': 'all',
+                        'stylers': {
+                            'color': '#f3f3f3'
+                        }
+                    }, {
+                        'featureType': 'railway',
+                        'elementType': 'all',
+                        'stylers': {
+                            'visibility': 'off'
+                        }
+                    }, {
+                        'featureType': 'highway',
+                        'elementType': 'all',
+                        'stylers': {
+                            'color': '#fdfdfd'
+                        }
+                    }, {
+                        'featureType': 'highway',
+                        'elementType': 'labels',
+                        'stylers': {
+                            'visibility': 'off'
+                        }
+                    }, {
+                        'featureType': 'arterial',
+                        'elementType': 'geometry',
+                        'stylers': {
+                            'color': '#fefefe'
+                        }
+                    }, {
+                        'featureType': 'arterial',
+                        'elementType': 'geometry.fill',
+                        'stylers': {
+                            'color': '#fefefe'
+                        }
+                    }, {
+                        'featureType': 'poi',
+                        'elementType': 'all',
+                        'stylers': {
+                            'visibility': 'off'
+                        }
+                    }, {
+                        'featureType': 'green',
+                        'elementType': 'all',
+                        'stylers': {
+                            'visibility': 'off'
+                        }
+                    }, {
+                        'featureType': 'subway',
+                        'elementType': 'all',
+                        'stylers': {
+                            'visibility': 'off'
+                        }
+                    }, {
+                        'featureType': 'manmade',
+                        'elementType': 'all',
+                        'stylers': {
+                            'color': '#d1d1d1'
+                        }
+                    }, {
+                        'featureType': 'local',
+                        'elementType': 'all',
+                        'stylers': {
+                            'color': '#d1d1d1'
+                        }
+                    }, {
+                        'featureType': 'arterial',
+                        'elementType': 'labels',
+                        'stylers': {
+                            'visibility': 'off'
+                        }
+                    }, {
+                        'featureType': 'boundary',
+                        'elementType': 'all',
+                        'stylers': {
+                            'color': '#fefefe'
+                        }
+                    }, {
+                        'featureType': 'building',
+                        'elementType': 'all',
+                        'stylers': {
+                            'color': '#d1d1d1'
+                        }
+                    }, {
+                        'featureType': 'label',
+                        'elementType': 'labels.text.fill',
+                        'stylers': {
+                            'color': '#000000'
+                        }
+                    }]
+                }
+            },
+            series: [{
+                name: 'pm2.5',
+                type: 'scatter',
+                coordinateSystem: 'bmap',
+                data: convertData(data),
+                symbolSize: function(val) {
+                    return val[2] / 10;
+                },
+                label: {
+                    normal: {
+                        formatter: '{b}',
+                        position: 'right',
+                        show: false
+                    },
+                    emphasis: {
+                        show: true
+                    }
+                },
+                itemStyle: {
+                    normal: {
+                        color: 'blue'
+                    }
+                }
+            }, {
+                name: 'Top 5',
+                type: 'effectScatter',
+                coordinateSystem: 'bmap',
+                data: convertData(data.sort(function(a, b) {
+                    return b.value - a.value;
+                }).slice(0, 0)),
+                symbolSize: function(val) {
+                    return val[2] / 10;
+                },
+                showEffectOn: 'render',
+                rippleEffect: {
+                    brushType: 'stroke'
+                },
+                hoverAnimation: true,
+                label: {
+                    normal: {
+                        formatter: '{b}',
+                        position: 'right',
+                        show: true
+                    }
+                },
+                itemStyle: {
+                    normal: {
+                        color: 'blue',
+                        shadowBlur: 10,
+                        shadowColor: '#333'
+                    }
+                },
+                zlevel: 1
+            }]
+        };;
+        if (option && typeof option === "object") {
+            myChart.setOption(option, true);
+        }
+    </script>
+</body>
+
+</html>
